@@ -1,4 +1,5 @@
-﻿internal class Program
+﻿//0xRETRO https://github.com/0xr3tro
+internal class Program
 {
     private static void Main()
     {
