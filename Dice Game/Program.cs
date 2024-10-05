@@ -1,4 +1,6 @@
-﻿//0xRETRO https://github.com/0xr3tro
+﻿// 0xRETRO https://github.com/0xr3tro
+using System;
+
 internal class Program
 {
     private static void Main()
@@ -44,14 +46,18 @@ internal class Program
                 }
             }
 
-            // Symulacja rzutu kostką
+            // Symulacja rzutu kostką komputera
             int rzutKostka = rand.Next(1, 7); // Rzucamy kostką (1-6)
-            Console.WriteLine($"Wynik rzutu kostką to: {rzutKostka}");
+            Console.WriteLine($"Wynik rzutu komputera to: {rzutKostka}");
 
-            // Sprawdzenie, kto wygrał
-            if (rzutGracza == rzutKostka)
+            // Sprawdzenie wyniku gry
+            if (rzutGracza > rzutKostka)
             {
                 Console.WriteLine("Gratulacje! Wygrałeś!");
+            }
+            else if (rzutGracza == rzutKostka)
+            {
+                Console.WriteLine("Remis!");
             }
             else
             {
@@ -59,10 +65,23 @@ internal class Program
             }
 
             // Pytanie, czy gracz chce kontynuować
-            Console.Write("Czy chcesz zagrać ponownie? (tak/nie): ");
-            string odpowiedz = Console.ReadLine().ToLower();
+            string odpowiedz;
+            while (true)
+            {
+                Console.Write("Czy chcesz zagrać ponownie? (tak/nie): ");
+                odpowiedz = Console.ReadLine().ToLower();
 
-            // Sprawdzenie odpowiedzi
+                if (odpowiedz == "tak" || odpowiedz == "nie")
+                {
+                    break; // Wyjdź z pętli, jeśli odpowiedź jest prawidłowa
+                }
+                else
+                {
+                    Console.WriteLine("Nieprawidłowa odpowiedź. Wpisz 'tak' lub 'nie'.");
+                }
+            }
+
+            // Zakończenie gry, jeśli gracz nie chce kontynuować
             if (odpowiedz != "tak")
             {
                 Console.WriteLine("Dziękujemy za grę! Do zobaczenia!");
