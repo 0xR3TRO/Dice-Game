@@ -18,6 +18,12 @@ internal class Program
         // Pętla do powtarzania gry
         while (true)
         {
+            // Wyczyść konsolę na początku każdej rundy
+            Console.Clear();
+
+            // Przywitanie gracza w nowej rundzie
+            Console.WriteLine($"Cześć, {imie}! Zaczynamy nową rundę!");
+
             // Deklaracja zmiennych
             int rzutGracza;
             Random rand = new Random(); // Inicjalizacja generatora liczb losowych
